@@ -1,0 +1,49 @@
+{
+  "name": "git4docs",
+  "version": "1.0.0",
+  "description": "git4docs — Open Source Git-Backed Document Control",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts",
+    "build": "tsc && cd client && npm run build",
+    "build:server": "tsc",
+    "start": "node dist/server/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "document-management",
+    "compliance",
+    "git"
+  ],
+  "author": "Dencworth LLC",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/js-yaml": "^4.0.9",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/marked": "^5.0.2",
+    "@types/node": "^25.4.0",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "isomorphic-git": "^1.37.2",
+    "js-yaml": "^4.1.1",
+    "jsonwebtoken": "^9.0.3",
+    "marked": "^17.0.4",
+    "puppeteer": "^24.39.1",
+    "uuid": "^13.0.0"
+  }
+}

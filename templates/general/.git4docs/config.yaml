@@ -1,0 +1,50 @@
+# .git4docs/config.yaml
+# Company-level settings and meta-governance.
+
+company:
+  name: "Your Company Name"
+  industry: general
+
+# Identity provider config — where user attributes come from
+identity:
+  provider: manual          # azure_ad | okta | google | manual
+  sync_interval: 15m        # how often to refresh user attributes
+
+  # Which identity attributes are available for matching.
+  attributes:
+    - department
+    - title
+    - location
+    - cost_center
+    - reports_to
+
+# META-GOVERNANCE: Changes to any .git4docs/ file require this workflow.
+# Only owner and admins can edit these files in the first place.
+system_governance:
+  description: "Controls who can modify document categories, workflows, and system configuration"
+  steps:
+    - role: admin
+      action: submit
+
+    - role: owner
+      action: approve
+      required: true
+
+# PDF template config — header/footer for generated PDFs
+pdf_templates:
+  header_html: |
+    <div style="width:100%;font-size:9px;font-family:Arial,sans-serif;border-bottom:1px solid #ccc;padding:4px 0;display:flex;justify-content:space-between;">
+      <span>{{COMPANY_NAME}}</span>
+      <span>{{DOC_ID}} Rev {{REVISION}}</span>
+    </div>
+  footer_html: |
+    <div style="width:100%;font-size:8px;font-family:Arial,sans-serif;border-top:1px solid #ccc;padding:4px 0;display:flex;justify-content:space-between;">
+      <span>Effective: {{EFFECTIVE_DATE}}</span>
+      <span>Page {{PAGE_NUMBER}} of {{TOTAL_PAGES}}</span>
+    </div>
+  page_size: letter
+  margins:
+    top: 80px
+    bottom: 60px
+    left: 60px
+    right: 60px

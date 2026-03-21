@@ -1,0 +1,25 @@
+# .git4docs/workflows/policies.yaml
+name: Policy Approval
+description: "Policies require quality review and executive approval"
+applies_to:
+  category: POL
+
+steps:
+  - match:
+      department: Quality
+      title:
+        includes: Manager
+    action: review
+    required: true
+    description: "Quality Manager reviews for compliance and consistency"
+
+  - role: approver
+    action: approve
+    required: true
+    description: "Executive gives final approval"
+
+on_approve:
+  notify:
+    - match: { all: true }
+  training_acknowledgment_required: true
+  effective_date: manual

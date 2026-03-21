@@ -1,0 +1,117 @@
+# .git4docs/categories.yaml
+# Document types, prefixes, numbering, and role assignment.
+
+categories:
+  - prefix: GOV
+    name: Governance
+    description: "System governance documents — approval rules, document types, roles"
+    workflow: policies
+    numbering: sequential
+    review_cycle_months: 0
+    roles:
+      viewer:
+        match: { all: true }
+      editor:
+        match: { all: true }
+      creator:
+        match: { all: true }
+      approver:
+        match: { all: true }
+
+  - prefix: POL
+    name: Policy
+    description: "Company-wide policies requiring executive approval"
+    workflow: policies
+    numbering: sequential
+    review_cycle_months: 24
+    roles:
+      viewer:
+        match: { all: true }
+      editor:
+        match:
+          department: Quality
+      creator:
+        match:
+          department: Quality
+      approver:
+        match:
+          any_of:
+            - title: { includes: CEO }
+            - title: { includes: President }
+
+  - prefix: SOP
+    name: Standard Operating Procedure
+    description: "Departmental procedures"
+    workflow: sop-review
+    numbering: sequential
+    review_cycle_months: 12
+    roles:
+      viewer:
+        match: { all: true }
+      editor:
+        match:
+          title:
+            any_of:
+              - includes: Manager
+              - includes: Supervisor
+              - includes: Engineer
+      creator:
+        match:
+          title:
+            any_of:
+              - includes: Manager
+              - includes: Supervisor
+              - includes: Engineer
+      approver:
+        match:
+          title:
+            any_of:
+              - includes: Director
+              - includes: VP
+
+  - prefix: WI
+    name: Work Instruction
+    description: "Step-by-step task instructions"
+    workflow: work-instructions
+    numbering: sequential
+    review_cycle_months: 12
+    roles:
+      viewer:
+        match: { all: true }
+      editor:
+        match:
+          title:
+            any_of:
+              - includes: Supervisor
+              - includes: Lead
+              - includes: Engineer
+      creator:
+        match:
+          title:
+            any_of:
+              - includes: Supervisor
+              - includes: Lead
+              - includes: Engineer
+      approver:
+        match:
+          title:
+            includes: Manager
+
+  - prefix: FRM
+    name: Form / Template
+    description: "Blank forms and record templates"
+    workflow: sop-review
+    numbering: sequential
+    review_cycle_months: 24
+    roles:
+      viewer:
+        match: { all: true }
+      editor:
+        match: { department: Quality }
+      creator:
+        match: { department: Quality }
+      approver:
+        match:
+          department: Quality
+          title:
+            includes: Manager

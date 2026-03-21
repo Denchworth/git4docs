@@ -1,0 +1,23 @@
+# .git4docs/workflows/sop-review.yaml
+name: SOP Review
+description: "Standard operating procedures require manager review and director approval"
+applies_to:
+  category: SOP
+
+steps:
+  - match:
+      relationship: submitter.reports_to
+    action: review
+    required: true
+    description: "Submitter's manager reviews the change"
+
+  - role: approver
+    action: approve
+    required: true
+    description: "Director or VP gives final approval"
+
+on_approve:
+  notify:
+    - match: { all: true }
+  training_acknowledgment_required: true
+  effective_date: immediate
