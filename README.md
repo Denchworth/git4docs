@@ -1,4 +1,6 @@
-## Why Git for document control?
+## Document Control built on Git
+
+git4docs is the open-source engine behind improvia - a compliance document management SaaS for ISO, FDA, and SOX-regulated companies. The core is here, open and inspectable. improvia adds hosting, teams, billing, and an AI layer on top.
 
 **Your audit trail is already built.** Every commit is a timestamped, 
 author-attributed record of exactly what changed. Not a log field in a 
@@ -21,6 +23,12 @@ No separate admin panel with settings nobody audits.
 
 **No vendor lock-in, ever.** Your documents are markdown files in a
 Git repo. If you stop using git4docs tomorrow, everything goes with you.
+
+---
+
+## Want the hosted version?
+
+improvia.app - git4docs with hosting, teams, and AI. Free tier available.
 
 ---
 
