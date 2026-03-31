@@ -31,6 +31,8 @@ Git repo. If you stop using git4docs tomorrow, everything goes with you.
 improvia.app - git4docs with hosting, teams, and AI. Free tier available.
 
 ---
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Setup
 
